@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Verify a grant recipient's matching funds with independently checked public evidence.">
+<title>GrantMatch | Matching funds verification</title>
+<link rel="stylesheet" href="./style.css">
+<script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<header><div class="wrap top"><a class="brand" href="./"><span>GM</span> GrantMatch</a><a href="https://studio.genlayer.com/run-debug" target="_blank" rel="noopener">Open GenLayer Studio ↗</a></div></header>
+<main class="wrap">
+  <section class="intro">
+    <p class="eyebrow">GENLAYER STUDIONET · 61999</p>
+    <h1>Verify the match.<br>Then release the grant.</h1>
+    <p>See which contributions count toward a grant’s matching requirement, and trace each decision back to the funding register.</p>
+  </section>
+  <section class="card" aria-labelledby="live-title">
+    <div class="heading"><div><p class="eyebrow">FINALIZED CONTRACT STATE</p><h2 id="live-title">Grant verification</h2></div><span class="pill" id="verdict">Connecting</span></div>
+    <form id="lookup"><label for="address">StudioNet contract address</label><div class="controls"><input id="address" name="contract" pattern="0x[0-9a-fA-F]{40}" required spellcheck="false"><button>Read contract</button></div></form>
+    <p class="message" id="read-status" role="status">Reading the default demonstration contract…</p>
+    <div id="results" hidden>
+      <div class="stats"><div><span>Claimed</span><strong id="claimed"></strong></div><div><span>Eligible</span><strong id="eligible"></strong></div><div><span>Required match</span><strong id="threshold"></strong></div></div>
+      <h3>Contribution evidence</h3>
+      <div class="table-wrap"><table><thead><tr><th>Transfer</th><th>Claimed</th><th>Decision</th><th>Register project</th></tr></thead><tbody id="records"></tbody></table></div>
+      <details><summary>Locked policy and verification hashes</summary><dl id="policy"></dl></details>
+      <div class="links"><a id="explorer" target="_blank" rel="noopener">Contract explorer ↗</a><a id="register" target="_blank" rel="noopener">Pinned evidence register ↗</a></div>
+    </div>
+  </section>
+  <section class="card" aria-labelledby="tx-title">
+    <p class="eyebrow">STUDIO BUILT-IN ACCOUNT</p><h2 id="tx-title">Submit, review, and track</h2>
+    <p>The designated recipient calls <code>submit_claim</code> in Studio. Once the claim is locked, anyone can call <code>review</code> using Normal (Full Consensus). Use the returned hash to track the write here.</p>
+    <form id="track"><label for="hash">StudioNet transaction hash</label><div class="controls"><input id="hash" pattern="0x[0-9a-fA-F]{64}" spellcheck="false" required placeholder="0x…"><button>Track transaction</button></div></form>
+    <p class="message" id="tx-status" role="status">Enter a hash or select a recorded demo transaction.</p>
+    <div id="demo-tx" class="links"></div><a id="tx-explorer" target="_blank" rel="noopener" hidden>View transaction in explorer ↗</a>
+  </section>
+  <section class="card muted"><p class="eyebrow">DEMONSTRATION</p><h2>Harbor Garden’s $10,000 match</h2><p>The fictional recipient claimed $12,000. The funding register assigns $4,000 to another project, leaving $8,000 eligible. This demo records a payout eligibility decision. Grant programs handle payments separately.</p></section>
+</main>
+<footer class="wrap"><span>GrantMatch · Public evidence, reviewable decisions</span><a href="https://github.com/amzar1st/GrantMatch-Verify-matching-funds-before-a-grant-pays-out">Source and deployment guide ↗</a></footer>
+</body>
+</html>
