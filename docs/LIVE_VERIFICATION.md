@@ -31,3 +31,10 @@ The finalized claim totaled **$12,000**. The review excluded **$4,000** under `R
 3. Call `submit_claim` with `[{"id":"bank-demo-001","cents":800000},{"id":"bank-demo-002","cents":400000}]`. Wait for a finalized successful receipt.
 4. Call `review` and wait for a finalized successful receipt. Select Finalized under Read Methods and call `get_grant`.
 5. Enter your new address in the dashboard. Paste each write hash into the tracker to check the consensus status and execution result. The demo above is already finalized and can be viewed without a wallet.
+
+## Release checks
+
+- Nine Python behavior tests, Python compilation, and JavaScript syntax checks passed.
+- GenVM Linter 0.11.0 passed AST lint and SDK validation against the pinned runner. The extracted interface contains two write methods and one view method.
+- The public dashboard returned HTTP 200 without an authenticated session. A browser run confirmed the default contract read and finalized review, and preview testing confirmed the invalid-address and failed-receipt states.
+- The [source-matched release commit](https://github.com/amzar1st/GrantMatch-Verify-matching-funds-before-a-grant-pays-out/commit/2d21b8a86c0b635c7932c5fa938373ec73c7f86b) contains the deployed contract and dashboard source.
