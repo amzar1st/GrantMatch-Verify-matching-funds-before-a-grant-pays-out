@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "records": [
+    {
+      "id": "bank-demo-001",
+      "recipient": "harbor-garden",
+      "project": "harbor-garden",
+      "currency": "USD",
+      "cents": 800000,
+      "settled": "2025-01-10",
+      "status": "SETTLED"
+    },
+    {
+      "id": "bank-demo-002",
+      "recipient": "harbor-garden",
+      "project": "other-project",
+      "currency": "USD",
+      "cents": 400000,
+      "settled": "2025-01-11",
+      "status": "SETTLED"
+    }
+  ]
+}
